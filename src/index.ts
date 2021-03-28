@@ -43,7 +43,25 @@ client.on("message", async (msg) => {
   switch (command) {
     case "birthdays": {
       await birthdays(msg, args);
+      return;
     }
+    default:
+      {
+        await msg.reply(
+          infoEmbed()
+            .setTitle("Olin Man comes to Discord!")
+            .setDescription(
+              "He can't do that much yet, but he's still learning!\n" +
+                "If you need something, `@maker of bot` and I'll get someone to help."
+            )
+            .addFields({
+              name: "Birthdays",
+              value:
+                "Olin Man will remember your birthday! `o.birthdays` for more info.",
+            })
+        );
+      }
+      return;
   }
 });
 

@@ -98,6 +98,10 @@ client.on("message", async (msg) => {
                 name: "Socials",
                 value:
                   "Olin Man remembers social media accounts, too! `o.socials` for more info.",
+              },
+              {
+                name: "Miscellaneous commands",
+                value: "I'm not a one-trick pony! Run `o.misc` for more info.",
               }
             )
         );

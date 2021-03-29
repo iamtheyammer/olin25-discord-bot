@@ -31,8 +31,6 @@ export default async function get(msg: Message, args: Args) {
     userId = msg.author.id;
   }
 
-  console.log(userId);
-
   if (!/^[0-9]+$/.test(userId)) {
     await msg.reply(
       errorEmbed()

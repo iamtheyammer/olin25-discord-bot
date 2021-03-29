@@ -4,3 +4,13 @@ export interface Birthday {
   month: number;
   day: number;
 }
+
+export interface Socials {
+  discord_id?: string;
+  snapchat?: string;
+  instagram?: string;
+  minecraft?: string;
+  overwatch?: string;
+  valorant?: string;
+  steam?: string;
+}

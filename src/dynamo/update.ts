@@ -20,7 +20,7 @@ export default function update(
     .join(", ")}`;
 
   return client.updateItem({
-    Key: key,
+    Key: marshall(key),
     TableName: tableName,
     ExpressionAttributeNames: attrNames,
     ExpressionAttributeValues: attrValues,

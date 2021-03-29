@@ -1,7 +1,8 @@
 import { Client } from "discord.js";
 import split from "splitargs2";
-import { errorEmbed, infoEmbed } from "./util/embeds";
+import { infoEmbed } from "./util/embeds";
 import birthdays from "./birthdays";
+import socials from "./socials";
 
 const client = new Client();
 
@@ -17,7 +18,7 @@ export interface Args {
 client.on("message", async (msg) => {
   if (
     (client.user && msg.author.id === client.user.id) ||
-    !msg.content.startsWith("o.")
+    !msg.content.toLowerCase().startsWith("o.")
   ) {
     return;
   }
@@ -45,6 +46,18 @@ client.on("message", async (msg) => {
       await birthdays(msg, args);
       return;
     }
+    case "birthday": {
+      await birthdays(msg, args);
+      return;
+    }
+    case "socials": {
+      await socials(msg, args);
+      return;
+    }
+    case "social": {
+      await socials(msg, args);
+      return;
+    }
     default:
       {
         await msg.reply(
@@ -54,11 +67,18 @@ client.on("message", async (msg) => {
               "He can't do that much yet, but he's still learning!\n" +
                 "If you need something, `@maker of bot` and I'll get someone to help."
             )
-            .addFields({
-              name: "Birthdays",
-              value:
-                "Olin Man will remember your birthday! `o.birthdays` for more info.",
-            })
+            .addFields(
+              {
+                name: "Birthdays",
+                value:
+                  "Olin Man will remember your birthday! `o.birthdays` for more info.",
+              },
+              {
+                name: "Socials",
+                value:
+                  "Olin Man remembers social media accounts, too! `o.socials` for more info.",
+              }
+            )
         );
       }
       return;

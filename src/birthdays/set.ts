@@ -46,7 +46,7 @@ export default async function set(msg: Message, args: Args) {
   try {
     await update(
       "olin25-birthdays",
-      { discord_id: { S: `${msg.author.id}` } },
+      { discord_id: `${msg.author.id}` },
       { day, month, year }
     );
   } catch (e) {

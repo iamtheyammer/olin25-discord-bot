@@ -58,6 +58,22 @@ client.on("message", async (msg) => {
       await socials(msg, args);
       return;
     }
+    case "repo": {
+      await msg.reply(
+        infoEmbed()
+          .setTitle("Oh, so you want to see my skeleton?")
+          .setDescription(
+            "Good news: I'm open-source! https://github.com/iamtheyammer/olin25-discord-bot"
+          )
+          .addFields({
+            name: "Want to add a bone to my body?",
+            value:
+              "Please do! I love a good _pull_ request!\n" +
+              "I'm written in TypeScript and my brain is backed by AWS DynamoDB.",
+          })
+      );
+      return;
+    }
     default:
       {
         await msg.reply(

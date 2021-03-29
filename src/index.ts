@@ -3,6 +3,7 @@ import split from "splitargs2";
 import { infoEmbed } from "./util/embeds";
 import birthdays from "./birthdays";
 import socials from "./socials";
+import misc from "./misc";
 
 const client = new Client();
 
@@ -56,6 +57,10 @@ client.on("message", async (msg) => {
     }
     case "social": {
       await socials(msg, args);
+      return;
+    }
+    case "misc": {
+      await misc(msg, args);
       return;
     }
     case "repo": {
